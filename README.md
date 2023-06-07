@@ -21,16 +21,37 @@ docker compose down
 ```
 
 ## Running auto config loader
-A test profile is available for testing a `/scripts/test/profile`. Running the install command with a `--debug` flat will inject the source script command into the test profile.
+
+Running this command will attempt to install the command into any system level configuration file.
 
 ```sh
-./scripts/_install.sh --debug
+/downloads/scripts/install.sh
 ```
 
 Run this command to uninstall
 
 ```sh
-./scripts/_uninstall.sh --debug
+/downloads/uninstall.sh
+```
+
+A test profile is available for testing a `/scripts/test/profile`. Running the install command with a `--debug` flat will inject the source script command into the test profile.
+
+```sh
+/downloads/scripts/install.sh --debug
+```
+
+### Testing with different shell in docker
+
+Additionally, you can install different shell for testing too
+```
+apt-get update && apt-get install zsh
+/downloads/scripts/install.sh
+zsh
+```
+
+To clean up and reset the environment, bring down the docker container and try again
+```sh
+docker compose down
 ```
 
 ## Additional reading
@@ -41,3 +62,4 @@ Run this command to uninstall
   > -- https://stackoverflow.com/questions/10574684/where-to-place-path-variable-assertions-in-zsh
 - differences between interactive and non-inteeractive shell. We only need to care about interactive shell. https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell
 - This chart illustrate how the different shell source env https://unix.stackexchange.com/a/541092
+- This documentation talked about usage of /etc/zshenv for MacOS and provde recommendation for Mac SysAdmin on how configuration can be configured centrally. https://scriptingosx.com/2019/06/moving-to-zsh-part-2-configuration-files/
