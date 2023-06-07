@@ -17,6 +17,8 @@ do
     if [ -f "$injection_site" ]; then
         echo "Removing from $injection_site"
         remove_command "$injection_site"
+    else
+        echo "Skipped $injection_site. File not found"
     fi
 done
 

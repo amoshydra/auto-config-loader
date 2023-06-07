@@ -21,8 +21,10 @@ cp -r AutoConfigLoader "/Library/AutoConfigLoader" # TODO file doesn't exist yet
 for injection_site in "${injection_sites[@]}"
 do
     if [ -f "$injection_site" ]; then
-        echo "Injecting into $injection_site"
+        echo "Installing into $injection_site"
         replace_command "$injection_site"
+    else
+        echo "Skipped $injection_site. File not found"
     fi
 done
 
