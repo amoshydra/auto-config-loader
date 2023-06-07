@@ -1,6 +1,10 @@
 # Auto Config Loader
 
 ## Project setup
+
+We uses docker to test and debug profile.
+This volume mount is setup `./scripts:/root/scripts`, allowing you to test the scripts in docker.
+
 ### Start
 ```sh
 docker compose up -d
@@ -16,9 +20,16 @@ docker exec -it computer bash
 docker compose down
 ```
 
-## Running autoloader
+## Running auto config loader
+A test profile is available for testing a `/scripts/test/profile`. Running the install command with a `--debug` flat will inject the source script command into the test profile.
+
 ```sh
 ./scripts/_install.sh --debug
+```
+
+Run this command to uninstall
+
+```sh
 ./scripts/_uninstall.sh --debug
 ```
 
