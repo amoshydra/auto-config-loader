@@ -7,18 +7,18 @@ source "$DIR/_lib.sh"
 # check debug mode
 if [ "$1" == "--debug" ]; then
     echo "Debug mode enabled"
-    declare -a injection_sites=("$ACON_TEST_PROFILE_PATH")
+    declare -a targets=("$ACON_TEST_PROFILE_PATH")
 else
-    declare -a injection_sites=("/etc/profile" "/etc/zprofile" "/etc/zsh/profile")
+    declare -a targets=("/etc/profile" "/etc/zprofile" "/etc/zsh/profile")
 fi
 
-for injection_site in "${injection_sites[@]}"
+for target in "${targets[@]}"
 do
-    if [ -f "$injection_site" ]; then
-        echo "Removing from $injection_site"
-        remove_command "$injection_site"
+    if [ -f "$target" ]; then
+        echo "Removing from $target"
+        remove_command "$target"
     else
-        echo "Skipped $injection_site. File not found"
+        echo "Skipped $target. File not found"
     fi
 done
 
