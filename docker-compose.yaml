@@ -1,0 +1,10 @@
+---
+version: "2.1"
+services:
+  computer:
+    image: debian:bullseye-slim
+    container_name: computer
+    command: tail -F /dev/null
+    working_dir: /root
+    volumes:
+      - ./scripts:/root/scripts
