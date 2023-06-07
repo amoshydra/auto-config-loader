@@ -1,4 +1,4 @@
-# Auto Profile Loader
+# Auto Config Loader
 
 ## Project setup
 ### Start
