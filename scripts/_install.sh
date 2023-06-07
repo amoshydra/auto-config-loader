@@ -9,7 +9,7 @@ if [ "$1" == "--debug" ]; then
     echo "Debug mode enabled"
     declare -a targets=("$ACON_TEST_PROFILE_PATH")
 else
-    declare -a targets=("/etc/profile" "/etc/zprofile" "/etc/zsh/profile")
+    declare -a targets=("/etc/profile" "/etc/zshenv" "/etc/zsh/zshenv")
 fi
 
 
@@ -30,6 +30,17 @@ do
 done
 
 # [2. Install]
+
+# In MacOS /etc/zshenv no longer get populated by default
+# This function create the file if it doesn't exist
+if [ "$(command -v zsh)" ]; then
+    if [ "$(uname)" == "Darwin" ]; then
+        if [ ! -f "/etc/zshenv" ]; then
+            touch "/etc/zshenv"
+        fi
+    fi
+fi
+
 for target in "${targets[@]}"
 do
     if [ -f "$target" ]; then
