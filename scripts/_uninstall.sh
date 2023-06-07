@@ -12,6 +12,10 @@ else
     declare -a targets=("/etc/profile" "/etc/zprofile" "/etc/zsh/profile")
 fi
 
+# [1. SETUP CONFIG]
+rm -rf "/Library/AutoConfigLoader"
+
+# [2. Install]
 for target in "${targets[@]}"
 do
     if [ -f "$target" ]; then

@@ -13,11 +13,23 @@ else
 fi
 
 
-# Setup files
-mkdir -p "/Library/AutoConfigLoader"
-cp -r AutoConfigLoader "/Library/AutoConfigLoader" # TODO file doesn't exist yet
+# [1. SETUP CONFIG]
+# if directory doesn't exist, create it
+if [ ! -d "/Library/AutoConfigLoader" ]; then
+    echo "Creating directory /Library/AutoConfigLoader"
+    mkdir -p "/Library/AutoConfigLoader/config"
+fi
 
-# Setup injection
+declare -a files=(
+    "/run.sh"
+    "/config/_.sh"
+)
+for file in "${files[@]}"
+do
+    cp "$DIR/../AutoConfigLoader$file" "/Library/AutoConfigLoader$file"
+done
+
+# [2. Install]
 for target in "${targets[@]}"
 do
     if [ -f "$target" ]; then

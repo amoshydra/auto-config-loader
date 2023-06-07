@@ -7,4 +7,5 @@ services:
     command: tail -F /dev/null
     working_dir: /root
     volumes:
-      - ./scripts:/root/scripts
+      - ./scripts:/downloads/scripts
+      - ./AutoConfigLoader:/downloads/AutoConfigLoader

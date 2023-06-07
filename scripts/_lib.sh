@@ -1,5 +1,5 @@
 export COMMAND_ID="#_AUTO_PROFILE_LOADER_#"
-export COMMAND="source /Library/AutoConfigLoader # $COMMAND_ID"
+export COMMAND="source /Library/AutoConfigLoader/run.sh # $COMMAND_ID"
 
 export ACON_TEST_PROFILE_PATH="${ACON_TEST_PROFILE_PATH:-"/root/scripts/test/profile"}"
 
