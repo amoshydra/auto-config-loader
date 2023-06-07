@@ -1,6 +1,8 @@
 export COMMAND_ID="#_AUTO_PROFILE_LOADER_#"
 export COMMAND="source /Library/AutoConfigLoader # $COMMAND_ID"
 
+export ACON_TEST_PROFILE_PATH="${ACON_TEST_PROFILE_PATH:-"/root/scripts/test/profile"}"
+
 # Setup injection
 function remove_command() {
     if [ "$(uname)" == "Darwin" ]; then

@@ -7,7 +7,7 @@ source "$DIR/_lib.sh"
 # check debug mode
 if [ "$1" == "--debug" ]; then
     echo "Debug mode enabled"
-    declare -a injection_sites=("/root/scripts/test/profile")
+    declare -a injection_sites=("$ACON_TEST_PROFILE_PATH")
 else
     declare -a injection_sites=("/etc/profile" "/etc/zprofile" "/etc/zsh/profile")
 fi
