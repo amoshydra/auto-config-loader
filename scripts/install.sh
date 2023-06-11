@@ -43,7 +43,7 @@ declare -a files=(
 )
 for file in "${files[@]}"
 do
-    cp "$DIR/../AutoConfigLoader$file" "/Library/AutoConfigLoader$file"
+    cp "$ROOT_DIR/AutoConfigLoader$file" "/Library/AutoConfigLoader$file"
 done
 
 # [2. Install]
