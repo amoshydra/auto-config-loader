@@ -1,7 +1,22 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+ROOT_DIR="$(dirname "$DIR")"
+
+echo ""
+echo "------------------------------------------------"
+echo ">[AutoConfigLoader]: Pre-run check"
+echo "------------------------------------------------"
+echo ""
+echo "Installation directory: $DIR"
+echo "Root directory: $ROOT_DIR"
+echo "Index of root directory:"
+find "$ROOT_DIR"
+echo ""
+echo "<[AutoConfigLoader]"
+echo ""
+
 # load libraries
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$DIR/_lib.sh"
 
 # check debug mode
