@@ -54,6 +54,7 @@ if [ "$(command -v zsh)" ]; then
     if [ "$(uname)" == "Darwin" ]; then
         if [ ! -f "/etc/zshenv" ]; then
             touch "/etc/zshenv"
+            chmod 644 "/etc/zshenv"
         fi
     fi
 fi
